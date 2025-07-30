@@ -1,0 +1,59 @@
+BlockChain -> it is a distributed ledger(database) shared across nodes, immutable, appendonly, and secure.
+each block contains a hash of the previous block, timestamp, and transaction data.
+
+block -> {
+    blockNumber : number,
+    timestamp : Date,
+    previousBlockHash : string,
+    transactions: [
+        {
+            transactionId : string,
+            sender : string,
+            receiver : string,
+            amount : number,
+            signature: string
+        }
+    ],
+    hash :  string, // hash is a unique identifier for the block, created using the block's data
+    merkleRoot : string, // merkleRoot is a hash of all transactions in the block, ensuring data integrity
+    nonce : number // nonce is a number used in the mining process to find a valid hash
+}
+
+nonce -> a integer that is used in mining to find a valid hash for the block. It is incremented until the hash of the block meets the required difficulty level.
+
+Miners want to find a hash of a block that starts with a certain number of zeroes (based on network difficulty){very }
+Miners are not hashing the block data directly, but finding a nonce that, when combined with the block data, produces a hash that meets the difficulty criteria.
+
+tamper-proofing -> each block's hash is based on previous block's hash, so if any data in a block is changed, its hash will change, invalidating all subsequent blocks.
+
+Hashing -> a cryptographic function that takes input data and produces a fixed-size string of characters, which is unique to the input data. It is used to create the block's hash and merkle root.
+eg: SHA-256, RIPEMD-160, Scrypt, Bcrypt, Argon2
+
+Node.js contains crypto as a built-in module for cryptographic operations, including hashing.
+
+Scenario:
+a user initates a transaction, which is then broadcasted to the network.
+Miners collect these transactions and create a block.
+The miner then hashes the block data with a nonce until it finds a hash that meets the difficulty criteria.
+it can be change data of block, but it will change the hash of the block, and all subsequent blocks will be invalidated.
+NOTE: if a person owns more than 50% of network, they can create a fork of the blockchain, which is a new version of the blockchain with different rules.(this is called a 51% attack)
+make sure to delay the transaction until the block is mined, so that transaction includes in blockchain can be verified no double spending occurs.
+
+Buying Coins Anonymously:
+- buying coin from an exchange
+- using a mixer to obfuscate the transaction history(like Tornado Cash)
+- after 100days, the transaction history is no longer visible on the blockchain, making it difficult to trace back to the original source.
+- send the coins to a new wallet address that is not linked to the original wallet.
+- use cross-chain swaps to exchange coins between different blockchains, further obfuscating the transaction history.(like wormhole)
+
+in blockchain, the chain has more blocks, the more secure it is, as it becomes harder to change the data in the blocks.
+if there is a fork in the blockchain, the longest chain is considered the valid one.
+
+NOTE: Every block is depends on the prior block, if we change the data in a block, it will change the hash of that block, and all subsequent blocks will be invalidated.
+
+Proof of Work (PoW) -> a consensus algorithm used in blockchain networks to validate transactions and add new blocks to the chain. It requires miners to solve complex mathematical problems to find a valid hash for a block, which requires significant computational power and energy.
+Proof of Work is old and not energy efficient, so it is being replaced by Proof of Stake (PoS) in many blockchain networks.
+
+Proof of Stake (PoS) -> a consensus algorithm that allows validators to create new blocks and validate transactions based on the amount of cryptocurrency they hold and are willing to "stake" as collateral. It is more energy-efficient than Proof of Work, as it does not require solving complex mathematical problems.
+
+
