@@ -1,0 +1,46 @@
+Banks Vs Blockchain:
+
+Banks Auth:
+- check if you have money
+- check if you are who you say you are
+- check if you are allowed to do this
+
+Blockchain Auth:
+- check if you have money (balance)
+- check if you are who you say you are (public key)
+- check if you are allowed to do this (smart contract rules)
+- check if the transaction is valid (consensus rules)
+- check if the transaction is included in the blockchain (block confirmation)
+
+On creating a account on a blockchain:
+- Generate a public/private key pair
+- Public key is your address
+- Private key is your secret (keep it safe!)
+
+Private Key: It is a secret number that allows you to access your blockchain account, It is used to sign transactions and prove ownership of your funds. If someone else gets your private key, they can access your funds.
+
+Public Key: It is derived from your private key and is used to receive funds. It is like your bank account number, which you can share with others to receive payments.
+
+phrase => NOT YOUR KEY, NOT YOUR CRYPTO -> If you do not control your private key, you do not control your cryptocurrency.
+
+These keys are generated using cryptographic algorithms, which ensure that they are unique and secure. The most common algorithm used in blockchain is the Elliptic Curve Digital Signature Algorithm (ECDSA).
+
+Uint8Array:
+- A typed array that represents an array of 8-bit unsigned integers.
+- Used to handle binary data in JavaScript, especially in the context of cryptography and blockchain
+- Efficient for storing and manipulating binary data.
+- Useful for cryptographic operations, such as hashing and signing.
+- Can be used to represent public and private keys, signatures, and other binary data.
+- Example: `const key = new Uint8Array([1, 2, 3, 4, 5]);`
+if a number is larger than 255, it will make that number into multiple bytes, e.g. 256 will be [1, 0], 257 will be [1, 1], etc.
+
+these keys are array of numbers, which can be converted to hexadecimal strings for easier representation. For example, a Uint8Array can be converted to a hex string using the `Buffer` class in Node.js or similar libraries in other languages.
+
+
+Encoding:
+- ASCII: American Standard Code for Information Interchange, a character encoding standard for electronic communication.(7-bit encoding)
+- UTF-8: A variable-width character encoding that can represent every character in the Unicode character set. It is backward compatible with ASCII and can represent characters from various languages.
+- Base64: A binary-to-text encoding scheme that represents binary data in an ASCII string format by translating it into a radix-64 representation. It is commonly used to encode binary data in URLs, email attachments, and other text-based formats. Base64 encoding is not a cryptographic function, but it is often used to encode binary data for transmission or storage in text formats.
+- Hex: A base-16 number system that uses 16 symbols (0-9 and A-F) to represent values. It is often used in computing and digital electronics to represent binary data in a more human-readable format.(4-bit encoding)
+- Binary: The base-2 number system that uses only two symbols (0 and 1) to represent values.(1-bit encoding)
+- UTF-16: A character encoding that uses one or two 16-bit code units to represent characters. It can represent all characters in the Unicode character set and is commonly used in applications that require support for multiple languages and scripts.(16-bit encoding)

@@ -1,0 +1,44 @@
+Hierarchial Detemination Wallet (HD Wallet):
+-> It generates a tree of keys from a single seed phrase.
+- allows for the creation of multiple addresses from a single seed.
+- This code generates a public/private key pair, signs a message, and verifies the signature using the Ed25519 algorithm.
+- It uses the `@noble/ed25519` library for cryptographic operations.
+
+HD Wallets are commonly used in cryptocurrencies like Bitcoin and Ethereum to manage multiple addresses and keys securely.
+eg: BIP32, BIP44, BIP39, Metamask, Phantom, etc.
+
+Derivation Path:
+- A derivation path is a string that defines how to derive keys from a seed phrase.
+- It specifies the hierarchy of keys and how they are derived from the master key.
+- The derivation path is used to derive the public and private keys for a specific address in a hierarchical deterministic wallet.
+- support interpolation of keys, interoperability between different wallets, and allows for the generation of multiple addresses from a single seed phrase.
+- The format of a derivation path is usually `m / purpose' / coin_type' / account' / change / address_index`, where:
+  - `m` indicates the master key.
+  - `purpose` is a constant that indicates the purpose of the derivation (e.g., 44' for BIP44).
+  - `coin_type` indicates the type of cryptocurrency (e.g., 0' for Bitcoin, 60' for Ethereum).
+  - `account` is the account number (e.g., 0 for the first account).
+  - `change` is a boolean that indicates whether the address is for receiving (0) or change (1).
+  - `address_index` is the index of the address within the account.
+
+
+Recovering Wallets:
+- Wallets can be recovered using a seed phrase, which is a human-readable representation of the seed used to generate the keys.
+- The seed phrase is typically 12 or 24 words long and can be used to regenerate the entire wallet, including all associated addresses and keys.
+- It is crucial to keep the seed phrase secure, as anyone with access to it can control the wallet and its funds.
+- In BIP32(Bitcoin Improvement Proposal 32), the seed phrase is used to derive a master key, which can then generate child keys for different addresses.
+
+
+
+Binance -> It is a trust wallet that allows users to store, send, and receive various cryptocurrencies. It uses a hierarchical deterministic (HD) wallet structure to manage multiple addresses and keys from a single seed phrase.
+- supports KYC (Know Your Customer) and AML (Anti-Money Laundering) regulations.
+- centeralized exchange that allows users to trade cryptocurrencies.
+
+
+
+Some Terminologies:
+- Mneumonics: A set of words used to represent a seed phrase.
+- Seed Phrase: A human-readable representation of the seed used to generate the keys in a wallet.
+
+bip32 library: A library that implements the BIP32 standard for hierarchical deterministic wallets.
+
+Mneumonics -> Seed Phrase -> Private Key -> Public Key

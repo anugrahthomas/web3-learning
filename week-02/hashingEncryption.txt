@@ -1,0 +1,44 @@
+Hashing VS Encryption:
+- hashing is one-way, irreversible process
+- encryption is two-way, reversible process
+- hashing is used to verify data integrity
+- encryption is used to protect data confidentiality
+- hashing produces a fixed-size output (hash)
+- encryption produces a variable-size output (ciphertext)
+- hashing algorithms include SHA-256, SHA-3, and MD5
+- encryption algorithms include AES, RSA, and Blowfish
+
+
+- The public and private keys are generated.(key pair generation)
+- Using the private key, a digital signature is created for the transaction data.(signature generation)
+- The digital signature is then verified using the public key to ensure authenticity and integrity of the transaction.(signature verification)
+
+Scenario -> user 'A' wants to send a transaction to user 'B':
+1. User 'A' creates a transaction with the details of the transfer, including the amount and User 'B's public key.
+2. User 'A' signs the transaction with their private key, creating a digital signature.
+3. The signed transaction is broadcasted to the network.
+4. Nodes in the network verify the transaction by checking the digital signature against user 'A's public key.
+5. If the signature is valid, the transaction is added to the blockchain, and user 'B' receives the funds.
+6. The transaction is recorded in a block, and the block is added to the blockchain after consensus is reached among the network participants.
+7. User 'B' can now access the funds using their private key, which corresponds to their public key.
+
+There are various encryption algorithms:
+- Symmetric encryption: Uses the same key for both encryption and decryption (e.g., AES, DES).
+- Asymmetric encryption: Uses a pair of keys (public and private) for encryption and decryption (e.g., RSA, ECC).
+- Hashing algorithms: Used to create a fixed-size hash value from input data (e.g., SHA-256, SHA-3, MD5).
+
+Usage of cryptographic algorithms in blockchain:
+- Digital signatures: Used to verify the authenticity and integrity of a message or transaction (e.g., ECDSA{eth and btc}, EDDSA{sol}).
+- Key exchange algorithms: Used to securely exchange cryptographic keys over a public channel (e.g., Diffie-Hellman, ECDH).
+- Cryptographic protocols: Used to establish secure communication channels (e.g., TLS/SSL, SSH).
+
+Asymmetric encryption used Elliptic Curve Cryptography (ECC) -> ECC is a form of public key cryptography based on the algebraic structure of elliptic curves over finite fields.
+eg: secp256k1(eth and btc), ed25519(sol)
+
+Signing and Verifying a Message:
+- create a pair of public and private keys
+- define message and convert the message to Uint8Array
+- sign the message with the private key
+- verify the signature with the public key
+
+There are libs: ethers.js(for eth), bitcoinjs-lib(for btc), solana-web3.js(for sol), @noble/curves(for ed25519), @noble/secp256k1(for secp256k1)
